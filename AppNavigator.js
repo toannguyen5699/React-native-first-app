@@ -19,33 +19,28 @@ const Stack = createStackNavigator();
 function AppNavigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                  backgroundColor: '#f4511e',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
+              }}
+              >
                 <Stack.Screen
                     name="Categories"
                     options={{
                         title: 'Home',
-                        headerStyle: {
-                            backgroundColor: '#f4511e',
-                        },
-                        headerTintColor: '#fff',
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
                     }}
                     component={Categories} />
                 <Stack.Screen
                     name="Category"
-                    options={{
-                        title: 'Category',
-                        headerStyle: {
-                            backgroundColor: '#f4511e',
-                        },
-                        headerTintColor: '#fff',
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
-                    }}
-                    component={Category} />
+                    component={Category}
+                    options={({ route }) => ({ title: route.params.categoryName })}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
