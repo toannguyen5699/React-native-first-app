@@ -1,0 +1,51 @@
+{
+    "categories": [
+        { 
+            "id": 1, 
+            "name": "Quan Dui" 
+        },
+        { 
+            "id": 2, 
+            "name": "Ao Phong" 
+        },
+        { 
+            "id": 3, 
+            "name": "Quan" 
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "images": [
+                {
+                    "url": "http://dummyimage.com/206x179.png/cc0000/ffffff"
+                }
+            ],
+            "name": "loooooo",
+            "price": "500000",
+            "category": 1
+        },
+        {
+            "id": 2,
+            "images": [
+                {
+                    "url": "http://dummyimage.com/159x123.jpg/5fa2dd/ffffff"
+                }
+            ],
+            "name": "hey bro",
+            "price": "500000",
+            "category": 2
+        },
+        {
+            "id": 3,
+            "images": [
+                {
+                    "url": "http://dummyimage.com/159x123.jpg/5fa2dd/ffffff"
+                }
+            ],
+            "name": "hey bro",
+            "price": "500000",
+            "category": 1
+        }
+    ]
+}

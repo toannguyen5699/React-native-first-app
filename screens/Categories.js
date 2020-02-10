@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, FlatList } from 'react-native';
 import CategoryListItem from '../components/CategoryListItem';
 
@@ -6,13 +7,22 @@ export default class Categories extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            categories: [
-                { id: 1, name: 'Quan Dui' },
-                { id: 2, name: 'Ao Phong' },
-                { id: 3, name: 'Quan' }
-            ]
+            categories: []
         };
     }
+
+    componentDidMount() {
+        axios.get('https://904e613b.ngrok.io/categories')
+            .then(res => {
+                this.setState({
+                    categories: res.data
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
 
     render() {
         const { navigation } = this.props;
@@ -28,7 +38,8 @@ export default class Categories extends React.Component {
                     <CategoryListItem
                         category={item}
                         onPress={() => navigation.navigate('Category', {
-                            categoryName: item.name
+                            categoryName: item.name,
+                            categoriesName: item.id
                         })} />
                 }
                 keyExtractor={item => `${item.id}`}
